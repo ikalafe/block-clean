@@ -1,8 +1,9 @@
+import 'package:clean_bloc/application/pages/advice/advice_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'theme.dart';
-import 'theme_service.dart';
+import 'application/core/services/theme_service.dart';
 
 void main() {
   runApp(
@@ -14,6 +15,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeService>(
@@ -24,11 +27,7 @@ class MyApp extends StatelessWidget {
               themeService.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
-          home: Scaffold(
-            body: Center(
-              child: Text('data'),
-            ),
-          ),
+          home: AdvicePage(),
         );
       },
     );
